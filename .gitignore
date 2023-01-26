@@ -1,11 +1,17 @@
 # Compiled class file
 *.class
 
+# Output folder
+target/
+
 # Log file
 *.log
 
 # Intellij files
 *.idea
+
+# VSCode files
+.vscode
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
