@@ -8,15 +8,18 @@ public abstract class GameWrapper implements Runnable {
 	private Thread thread;
 	Logger logger;
 
-	private final long MAX_TPS = 30;
+	private long MAX_TPS = 20;
+	private long MS_PER_TICK;
 	private long tickDebt = 0;
-	private long timeOfLastTick = System.currentTimeMillis();
+	private long lastTickAccrualTime;
 
 	GameView gameView;
 
 	public GameWrapper(GameView gameView, Logger logger) {
 		this.gameView = gameView;
 		this.logger = logger;
+
+		this.MS_PER_TICK = 1000L / MAX_TPS;
 	}
 
 	public abstract void setup();
@@ -30,20 +33,21 @@ public abstract class GameWrapper implements Runnable {
 
 	private void tryTick() {
 		long curTime = System.currentTimeMillis();
-		
-		tickDebt += ((curTime - timeOfLastTick) * MAX_TPS) / 1000L;
-		
+
+		long addTicks = (curTime - lastTickAccrualTime) / MS_PER_TICK;
+		tickDebt += addTicks;
+		lastTickAccrualTime += addTicks * MS_PER_TICK;
+
 		if (tickDebt == 0) {
 			return;
 		}
 
-		if (tickDebt > 1) {
-			logger.warn("Running behind! TickDebt = " + tickDebt);
-		}
-
 		sendTick();
 		tickDebt--;
-		timeOfLastTick = System.currentTimeMillis();
+
+		if (tickDebt > 0) {
+			logger.warn("Running behind! TickDebt = " + tickDebt);
+		}
 	}
 	
 	private void sendTick() {
@@ -65,7 +69,7 @@ public abstract class GameWrapper implements Runnable {
 	@Override
 	public final void run() {
 		setup();
-		timeOfLastTick = System.currentTimeMillis();
+		lastTickAccrualTime = System.currentTimeMillis();
 		mainLoop();
 	}
 }
