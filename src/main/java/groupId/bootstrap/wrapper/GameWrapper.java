@@ -1,7 +1,7 @@
-package wrapper;
+package groupId.bootstrap.wrapper;
 
-import logging.Logger;
-import view.GameView;
+import groupId.bootstrap.logging.Logger;
+import groupId.bootstrap.view.GameView;
 
 public abstract class GameWrapper implements Runnable {
 

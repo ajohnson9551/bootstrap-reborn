@@ -1,6 +1,6 @@
-package view;
+package groupId.bootstrap.view;
 
-import engine.GameEngine;
+import groupId.bootstrap.engine.GameEngine;
 
 public abstract class GameView {
 

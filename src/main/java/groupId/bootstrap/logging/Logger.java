@@ -1,4 +1,4 @@
-package logging;
+package groupId.bootstrap.logging;
 
 public abstract class Logger {
 

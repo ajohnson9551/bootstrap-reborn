@@ -1,8 +1,9 @@
-package wrapper.desktop.output;
+package groupId.bootstrap.wrapper.desktop.output;
 
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.glfw.GLFWVidMode;
-import wrapper.desktop.input.CursorPosInput;
+
+import groupId.bootstrap.wrapper.desktop.input.CursorPosInput;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.system.MemoryUtil.NULL;

@@ -1,4 +1,4 @@
-package wrapper.desktop.input;
+package groupId.bootstrap.wrapper.desktop.input;
 
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWKeyCallback;

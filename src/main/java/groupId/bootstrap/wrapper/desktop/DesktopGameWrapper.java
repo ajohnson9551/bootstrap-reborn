@@ -1,11 +1,11 @@
-package wrapper.desktop;
+package groupId.bootstrap.wrapper.desktop;
 
-import logging.DesktopLogger;
-import view.DesktopGameView;
-import wrapper.GameWrapper;
-import wrapper.desktop.input.KeyboardInput;
-import wrapper.desktop.input.CursorPosInput;
-import wrapper.desktop.output.Window;
+import groupId.bootstrap.logging.DesktopLogger;
+import groupId.bootstrap.view.DesktopGameView;
+import groupId.bootstrap.wrapper.GameWrapper;
+import groupId.bootstrap.wrapper.desktop.input.CursorPosInput;
+import groupId.bootstrap.wrapper.desktop.input.KeyboardInput;
+import groupId.bootstrap.wrapper.desktop.output.Window;
 
 public class DesktopGameWrapper extends GameWrapper {
 
