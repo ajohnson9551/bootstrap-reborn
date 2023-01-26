@@ -41,6 +41,7 @@ public class DesktopGameWrapper extends GameWrapper {
 		Window.getInstance().setCursorPosCallBack(cursorPosInput);
 	}
 
+	@Override
 	public void setup() {
 		initWindow();
 		setCallBacks();
